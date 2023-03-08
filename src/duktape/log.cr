@@ -7,13 +7,6 @@
 require "log"
 require "json"
 
-Log.setup_from_env(
-  default_sources: ENV.fetch("LOG_SOURCES", "duktape.*"),
-  backend: Log::IOBackend.new.tap do |backend|
-    backend.formatter = Duktape::Log.formatter
-  end
-)
-
 module Duktape
   module Log
     Base    = ::Log.for("duktape")
